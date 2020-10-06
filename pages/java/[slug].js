@@ -3,14 +3,19 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown/with-html";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import darcula from 'react-syntax-highlighter/dist/cjs/styles/prism/darcula';
+
+const CodeBlock = ({ language, value }) => {
+  return <SyntaxHighlighter language={language} style={darcula}>{value}</SyntaxHighlighter>;
+};
 
 const Java = ({ content, frontmatter }) => {
   const { title, updatedAt } = frontmatter;
-
   return <>
     <h1>{title}</h1>
     <h3>Updated at {updatedAt}</h3>
-    <ReactMarkdown escapeHtml={false} source={content} />
+    <ReactMarkdown escapeHtml={false} source={content} renderers={{ code: CodeBlock }} />
     </>
 }
 

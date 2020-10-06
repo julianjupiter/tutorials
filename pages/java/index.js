@@ -38,7 +38,7 @@ export async function getStaticProps() {
 
         const frontmatter = {
             ...data,
-            date: formattedDate,
+            updatedAt: formattedDate,
         };
 
         return {
