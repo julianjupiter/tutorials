@@ -5,7 +5,7 @@
   "homepage": "https://tutorials.julianjupiter.com/",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export && cp CNAME out/CNAME && cp .nojekyll out/.nojekyll",
+    "build": "next build && next export",
     "start": "next start",
     "predeploy": "next build && next export && cp CNAME out/CNAME && cp .nojekyll out/.nojekyll",
     "deploy": "gh-pages -b main -d out",
